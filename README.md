@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-emerald.svg)](README.md)
-[![Release](https://img.shields.io/badge/Release-v1.0.0-indigo.svg)](https://github.com/abrahamjroy/OpenDSZ/releases)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-indigo.svg)](https://github.com/abrahamjroy/OpenDualSenseZ/releases)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 
 OpenDSZ is a fast, lightweight, and completely open-source alternative to DualSenseX. It provides full adaptive trigger manipulation, UDP telemetry synthesis, touchpad & 6-axis air mouse navigation, Ferrari F1 dynamic shift lights, and Steam game templates with zero paywalls, zero telemetry, and zero bloated browser runtimes.
@@ -91,8 +91,8 @@ sudo udevadm trigger
 
 ```bash
 # Clone the repository
-git clone https://github.com/abrahamjroy/OpenDSZ.git
-cd OpenDSZ
+git clone https://github.com/abrahamjroy/OpenDualSenseZ.git
+cd OpenDualSenseZ
 
 # Install dependencies
 pip install -r requirements.txt pyinstaller
@@ -132,20 +132,20 @@ If you use OpenDSZ in your software, game mods, research, or articles, please pr
 
 ### BibTeX
 ```bibtex
-@software{Roy_OpenDSZ_2026,
+@software{Roy_OpenDualSenseZ_2026,
   author       = {Roy, Abraham Jeevan},
   title        = {{OpenDSZ: Free & Open-Source DualSense Controller Manager}},
   year         = {2026},
   publisher    = {GitHub},
   journal      = {GitHub repository},
-  howpublished = {\url{https://github.com/abrahamjroy/OpenDSZ}},
+  howpublished = {\url{https://github.com/abrahamjroy/OpenDualSenseZ}},
   version      = {1.0.0}
 }
 ```
 
 ### Markdown / Text
 ```text
-OpenDSZ by Abraham Jeevan Roy (https://github.com/abrahamjroy/OpenDSZ) - Licensed under Apache-2.0.
+OpenDSZ by Abraham Jeevan Roy (https://github.com/abrahamjroy/OpenDualSenseZ) - Licensed under Apache-2.0.
 ```
 
 ---

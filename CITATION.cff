@@ -8,8 +8,8 @@ title: "OpenDSZ: Free & Open-Source DualSense Controller Manager"
 version: 1.0.0
 date-released: 2026-09-21
 license: Apache-2.0
-url: "https://github.com/abrahamjroy/OpenDSZ"
-repository-code: "https://github.com/abrahamjroy/OpenDSZ"
+url: "https://github.com/abrahamjroy/OpenDualSenseZ"
+repository-code: "https://github.com/abrahamjroy/OpenDualSenseZ"
 abstract: >-
   OpenDSZ is a lightweight, cross-platform DualSense and DualSense Edge controller
   manager providing adaptive trigger resistance, 6-axis air mouse navigation,
