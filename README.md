@@ -5,7 +5,7 @@
 [![Release](https://img.shields.io/badge/Release-v1.0.0-indigo.svg)](https://github.com/abrahamjroy/OpenDualSenseZ/releases)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 
-OpenDSZ is a fast, lightweight, and completely open-source alternative to DualSenseX. It provides full adaptive trigger manipulation, UDP telemetry synthesis, touchpad & 6-axis air mouse navigation, Ferrari F1 dynamic shift lights, and Steam game templates with zero paywalls, zero telemetry, and zero bloated browser runtimes.
+OpenDSZ is a fast, lightweight, and completely open-source alternative to DualSenseX. It provides full adaptive trigger manipulation, UDP telemetry synthesis, touchpad & 6-axis air mouse navigation, Ferrari's F1 inspired dynamic shift lights for Forza games, and Steam game templates with zero paywalls, zero telemetry, and zero bloated browser runtimes.
 
 Developed and maintained by **[Abraham Jeevan Roy](https://github.com/abrahamjroy)** and the OpenDSZ Contributors.
 
@@ -110,8 +110,6 @@ bash scripts/build_linux.sh
 # macOS:
 bash scripts/build_macos.sh
 ```
-Windows standalone output will be located in [`dist/OpenDSZ/OpenDSZ-DualSense.exe`](dist/OpenDSZ/OpenDSZ-DualSense.exe).
-
 ---
 
 ## 6. Attribution, Credits & Upstream Research
