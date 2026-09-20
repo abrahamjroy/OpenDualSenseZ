@@ -1,0 +1,56 @@
+{
+  "name": "Desktop Navigation",
+  "description": "Touchpad as smooth desktop mouse with tap-to-click and gesture scroll",
+  "steam_app_id": 0,
+  "process_names": [],
+  "telemetry": {
+    "enabled": false,
+    "protocol": "None",
+    "port": 0
+  },
+  "triggers": {
+    "left": {
+      "mode": 0,
+      "params": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "right": {
+      "mode": 0,
+      "params": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "touchpad": {
+    "enabled": true,
+    "sensitivity": 0.2,
+    "scroll_lines": 3,
+    "air_mouse": false,
+    "haptics": true,
+    "shortcuts": true
+  },
+  "led": {
+    "r": 0,
+    "g": 120,
+    "b": 255
+  }
+}

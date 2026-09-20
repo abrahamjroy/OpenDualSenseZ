@@ -1,0 +1,60 @@
+{
+  "name": "Forza Horizon 5 (Steam)",
+  "description": "Dynamic ABS brake vibration, tire traction loss kickback, and gear shift clunk",
+  "steam_app_id": 1551360,
+  "process_names": [
+    "forzahorizon6.exe",
+    "ForzaHorizon6.exe",
+    "ForzaHorizon5.exe",
+    "ForzaHorizon4.exe"
+  ],
+  "telemetry": {
+    "enabled": true,
+    "protocol": "ForzaDataOut",
+    "port": 5300,
+    "abs_sensitivity": 1.05,
+    "traction_sensitivity": 1.1
+  },
+  "triggers": {
+    "left": {
+      "mode": 1,
+      "params": [
+        5,
+        180,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "right": {
+      "mode": 1,
+      "params": [
+        5,
+        80,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "touchpad": {
+    "enabled": false,
+    "sensitivity": 1.2
+  },
+  "led": {
+    "r": 255,
+    "g": 60,
+    "b": 0,
+    "effect": "RPM Shift Light (Forza)"
+  }
+}

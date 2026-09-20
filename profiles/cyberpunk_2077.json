@@ -1,0 +1,54 @@
+{
+  "name": "Cyberpunk 2077 (Steam)",
+  "description": "DSX mod integration with automatic weapon feedback and vehicle triggers",
+  "steam_app_id": 1091500,
+  "process_names": [
+    "Cyberpunk2077.exe"
+  ],
+  "telemetry": {
+    "enabled": true,
+    "protocol": "DSX_UDP",
+    "port": 6969
+  },
+  "triggers": {
+    "left": {
+      "mode": 2,
+      "params": [
+        10,
+        100,
+        200,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "right": {
+      "mode": 1,
+      "params": [
+        0,
+        120,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "touchpad": {
+    "enabled": false,
+    "sensitivity": 1.0
+  },
+  "led": {
+    "r": 0,
+    "g": 255,
+    "b": 230
+  }
+}

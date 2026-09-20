@@ -1,0 +1,88 @@
+name: Build and Release Standalone Multiplatform Binaries
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.os }} Standalone Binary
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            artifact_name: OpenDSZ-Windows-x64.zip
+            platform: windows
+          - os: ubuntu-22.04
+            artifact_name: OpenDSZ-Linux-x86_64.tar.gz
+            platform: linux
+          - os: macos-latest
+            artifact_name: OpenDSZ-macOS-universal.zip
+            platform: macos
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install System Dependencies (Linux)
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libhidapi-dev libudev-dev python3-tk
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller
+
+      - name: Install macOS Dependencies
+        if: matrix.platform == 'macos'
+        run: |
+          pip install pyobjc-framework-Quartz
+
+      - name: Build Standalone Application (Windows)
+        if: matrix.platform == 'windows'
+        run: |
+          python build.py
+          Compress-Archive -Path dist/OpenDSZ/* -DestinationPath ${{ matrix.artifact_name }}
+
+      - name: Build Standalone Application (Linux)
+        if: matrix.platform == 'linux'
+        run: |
+          chmod +x scripts/build_linux.sh
+          bash scripts/build_linux.sh
+          mv dist/OpenDSZ-Linux-x86_64.tar.gz ${{ matrix.artifact_name }}
+
+      - name: Build Standalone Application (macOS)
+        if: matrix.platform == 'macos'
+        run: |
+          chmod +x scripts/build_macos.sh
+          bash scripts/build_macos.sh
+          mv dist/OpenDSZ-macOS-universal.zip ${{ matrix.artifact_name }}
+
+      - name: Upload Artifact to GitHub Actions Run
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: ${{ matrix.artifact_name }}
+
+      - name: Publish to GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ${{ matrix.artifact_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

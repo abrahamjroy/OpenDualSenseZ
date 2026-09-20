@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller temporary compilation artifacts and releases
+build/
+dist/
+*.spec.bak
+
+# Log files and crash dumps
+*.log
+app_log.txt
+crash.log
+out.log
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+
+# Editor and IDE Settings
+.vscode/
+.idea/
+*.swp
+*.swo
