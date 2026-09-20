@@ -17,8 +17,10 @@ End users do **not** need to install Python, Git, or dependencies. OpenDSZ is di
 
 | Platform | Format | Release Asset | How to Run |
 | :--- | :--- | :--- | :--- |
-| **Windows** | Portable Executable | `OpenDSZ-Windows-x64.zip` | Extract and run `OpenDSZ-DualSense.exe` or `OpenDSZ.exe` (No installer required) |
-| **Linux / SteamOS** | Standalone Tarball | `OpenDSZ-Linux-x86_64.tar.gz` | Extract and execute `./OpenDSZ` (Install udev rules once) |
+| **Windows (Direct)** | **Standalone Single Executable** | **`OpenDSZ-DualSense.exe`** | **Download and run directly** (Zero extraction, zero install) |
+| **Windows (Portable)** | Portable Directory Package | `OpenDSZ-Windows-x64.zip` | Extract zip and run `OpenDSZ-DualSense.exe` |
+| **Linux (Direct)** | Standalone Executable Binary | `OpenDSZ-Linux-x86_64` | `chmod +x OpenDSZ-Linux-x86_64 && ./OpenDSZ-Linux-x86_64` |
+| **Linux (Tarball)** | Standalone Tarball Package | `OpenDSZ-Linux-x86_64.tar.gz` | Extract tarball and execute `./OpenDSZ` |
 | **macOS** | Universal App Bundle | `OpenDSZ-macOS-universal.zip` | Unzip and open `OpenDSZ.app` (Apple Silicon & Intel) |
 
 ### Automated GitHub CI/CD Pipeline

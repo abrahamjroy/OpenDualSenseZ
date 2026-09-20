@@ -11,7 +11,7 @@ cd "$DIR"
 python3 -m pip install --upgrade pip
 pip install -r requirements.txt pyinstaller pyobjc-framework-Quartz
 
-# Run PyInstaller
+# Run PyInstaller to generate OpenDSZ.app bundle
 pyinstaller --noconfirm --clean --windowed \
     --name "OpenDSZ" \
     --icon "opendsz/assets/logo.png" \

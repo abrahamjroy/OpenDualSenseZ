@@ -5,26 +5,28 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag name (e.g. v1.0.0)'
+        required: false
+        default: 'v1.0.0'
 
 permissions:
   contents: write
 
 jobs:
   build:
-    name: Build ${{ matrix.os }} Standalone Binary
+    name: Build ${{ matrix.platform }} Artifacts
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         include:
-          - os: windows-latest
-            artifact_name: OpenDSZ-Windows-x64.zip
-            platform: windows
-          - os: ubuntu-22.04
-            artifact_name: OpenDSZ-Linux-x86_64.tar.gz
-            platform: linux
-          - os: macos-latest
-            artifact_name: OpenDSZ-macOS-universal.zip
-            platform: macos
+          - platform: windows
+            os: windows-latest
+          - platform: linux
+            os: ubuntu-22.04
+          - platform: macos
+            os: macos-latest
 
     steps:
       - name: Checkout Code
@@ -35,6 +37,7 @@ jobs:
         with:
           python-version: '3.10'
 
+      # Linux Setup
       - name: Install System Dependencies (Linux)
         if: matrix.platform == 'linux'
         run: |
@@ -46,42 +49,79 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt pyinstaller
 
+      # macOS Setup
       - name: Install macOS Dependencies
         if: matrix.platform == 'macos'
         run: |
           pip install pyobjc-framework-Quartz
 
-      - name: Build Standalone Application (Windows)
+      # Windows Build
+      - name: Build Windows Standalone Executable & Archive
         if: matrix.platform == 'windows'
         run: |
           python build.py
-          Compress-Archive -Path dist/OpenDSZ/* -DestinationPath ${{ matrix.artifact_name }}
 
-      - name: Build Standalone Application (Linux)
+      # Linux Build
+      - name: Build Linux Standalone Binary & Archive
         if: matrix.platform == 'linux'
         run: |
           chmod +x scripts/build_linux.sh
           bash scripts/build_linux.sh
-          mv dist/OpenDSZ-Linux-x86_64.tar.gz ${{ matrix.artifact_name }}
 
-      - name: Build Standalone Application (macOS)
+      # macOS Build
+      - name: Build macOS Application Bundle
         if: matrix.platform == 'macos'
         run: |
           chmod +x scripts/build_macos.sh
           bash scripts/build_macos.sh
-          mv dist/OpenDSZ-macOS-universal.zip ${{ matrix.artifact_name }}
 
-      - name: Upload Artifact to GitHub Actions Run
+      # Stash artifacts
+      - name: Stage Artifacts (Windows)
+        if: matrix.platform == 'windows'
+        run: |
+          mkdir -p staged
+          cp dist/OpenDSZ-DualSense.exe staged/
+          cp dist/OpenDSZ-Windows-x64.zip staged/
+
+      - name: Stage Artifacts (Linux)
+        if: matrix.platform == 'linux'
+        run: |
+          mkdir -p staged
+          cp dist/OpenDSZ-Linux-x86_64 staged/
+          cp dist/OpenDSZ-Linux-x86_64.tar.gz staged/
+
+      - name: Stage Artifacts (macOS)
+        if: matrix.platform == 'macos'
+        run: |
+          mkdir -p staged
+          cp dist/OpenDSZ-macOS-universal.zip staged/
+
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.artifact_name }}
-          path: ${{ matrix.artifact_name }}
+          name: artifacts-${{ matrix.platform }}
+          path: staged/*
+
+  publish:
+    name: Publish Release Assets to GitHub
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download All Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release_assets
+          merge-multiple: true
+
+      - name: List Artifacts
+        run: |
+          ls -lh release_assets
 
       - name: Publish to GitHub Release
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: ${{ matrix.artifact_name }}
+          tag_name: ${{ github.event.inputs.tag_name || github.ref_name }}
+          files: release_assets/*
           draft: false
           prerelease: false
         env:
