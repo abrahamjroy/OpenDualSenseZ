@@ -1,0 +1,33 @@
+=========================================================================
+==  NOTICE file corresponding to section 4(d) of the Apache License,   ==
+==  Version 2.0, in this case for OpenDSZ.                             ==
+=========================================================================
+
+OpenDSZ: Universal DualSense & DualSense Edge Controller Manager
+Copyright 2026 Abraham Jeevan Roy and the OpenDSZ Contributors.
+
+This product includes software developed by the OpenDSZ Project.
+Original Author & Maintainer: Abraham Jeevan Roy <abrahamjroy@gmail.com>
+
+-------------------------------------------------------------------------
+Attribution, Reverse Engineering & Upstream Research Acknowledgments:
+-------------------------------------------------------------------------
+
+OpenDSZ builds upon foundational protocol research and open engineering
+contributions from the PlayStation reverse-engineering community:
+
+1. Sony Interactive Entertainment Inc.
+   - Linux kernel driver `hid-playstation` (drivers/hid/hid-playstation.c)
+   - DualSense HID input and output report layout definitions.
+
+2. daidr (daidr/dualsense-tester)
+   - Research and documentation of Bluetooth Output Report 0x36,
+     Opus audio encoding, and 3000Hz haptic PCM stream multiplexing.
+
+3. nowrep (nowrep/dualsensectl)
+   - Linux userspace DualSense HID communication architecture and
+     IEEE 802.3 CRC-32 seed calculations for Bluetooth Report 0x31.
+
+4. ligun0510 (ligun0510/PulseCore)
+   - Concept inspiration for controller link diagnostics, 3.5mm jack
+     headphone auto-switching heuristics, and master rumble attenuation.

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use OpenDSZ in your research, software, or projects, please cite it as below."
+authors:
+  - family-names: "Roy"
+    given-names: "Abraham Jeevan"
+    email: "abrahamjroy@gmail.com"
+title: "OpenDSZ: Free & Open-Source DualSense Controller Manager"
+version: 1.0.0
+date-released: 2026-09-21
+license: Apache-2.0
+url: "https://github.com/abrahamjroy/OpenDSZ"
+repository-code: "https://github.com/abrahamjroy/OpenDSZ"
+abstract: >-
+  OpenDSZ is a lightweight, cross-platform DualSense and DualSense Edge controller
+  manager providing adaptive trigger resistance, 6-axis air mouse navigation,
+  tactile Force Touch haptics, UDP racing telemetry synthesis, and dynamic RGB
+  lightbar effects across Windows, macOS, and Linux.
+keywords:
+  - dualsense
+  - playstation
+  - adaptive-triggers
+  - haptic-feedback
+  - telemetry
+  - air-mouse
+  - forza-horizon
+  - gaming-controller

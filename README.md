@@ -1,6 +1,13 @@
 # OpenDSZ: Free & Open-Source DualSense Controller Manager
 
-OpenDSZ is a fast, lightweight, and completely open-source alternative to DualSenseX. It provides full adaptive trigger manipulation, UDP telemetry synthesis, touchpad & air mouse navigation, Ferrari F1 dynamic shift lights, and Steam game templates with zero paywalls, zero telemetry, and zero bloated browser runtimes.
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-emerald.svg)](README.md)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-indigo.svg)](https://github.com/abrahamjroy/OpenDSZ/releases)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+
+OpenDSZ is a fast, lightweight, and completely open-source alternative to DualSenseX. It provides full adaptive trigger manipulation, UDP telemetry synthesis, touchpad & 6-axis air mouse navigation, Ferrari F1 dynamic shift lights, and Steam game templates with zero paywalls, zero telemetry, and zero bloated browser runtimes.
+
+Developed and maintained by **[Abraham Jeevan Roy](https://github.com/abrahamjroy)** and the OpenDSZ Contributors.
 
 ---
 
@@ -84,7 +91,7 @@ sudo udevadm trigger
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/OpenDSZ.git
+git clone https://github.com/abrahamjroy/OpenDSZ.git
 cd OpenDSZ
 
 # Install dependencies
@@ -104,3 +111,56 @@ bash scripts/build_linux.sh
 bash scripts/build_macos.sh
 ```
 Windows standalone output will be located in [`dist/OpenDSZ/OpenDSZ-DualSense.exe`](dist/OpenDSZ/OpenDSZ-DualSense.exe).
+
+---
+
+## 6. Attribution, Credits & Upstream Research
+
+OpenDSZ is built upon pioneering reverse-engineering and open-source contributions from the gaming and hardware community:
+
+- **Original Author & Maintainer**: **Abraham Jeevan Roy** ([@abrahamjroy](https://github.com/abrahamjroy))
+- **daidr ([daidr/dualsense-tester](https://github.com/daidr/dualsense-tester))**: Invaluable documentation of Bluetooth Output Report `0x36`, Opus CELT frame layouts, and 3000Hz haptic PCM stream multiplexing.
+- **nowrep ([nowrep/dualsensectl](https://github.com/nowrep/dualsensectl))**: Linux HID protocol reverse-engineering, output report structures, and IEEE 802.3 CRC-32 seed calculations for Bluetooth Report `0x31`.
+- **Sony Interactive Entertainment**: Official Linux kernel driver `hid-playstation` (`drivers/hid/hid-playstation.c`) for baseline report definitions and validity flags.
+- **ligun0510 ([ligun0510/PulseCore](https://github.com/ligun0510/PulseCore))**: Architecture inspiration for real-time link diagnostics, audio route state tracking, and rumble attenuation scaling.
+
+---
+
+## 7. How to Attribute / Cite OpenDSZ
+
+If you use OpenDSZ in your software, game mods, research, or articles, please provide attribution using the following formats:
+
+### BibTeX
+```bibtex
+@software{Roy_OpenDSZ_2026,
+  author       = {Roy, Abraham Jeevan},
+  title        = {{OpenDSZ: Free & Open-Source DualSense Controller Manager}},
+  year         = {2026},
+  publisher    = {GitHub},
+  journal      = {GitHub repository},
+  howpublished = {\url{https://github.com/abrahamjroy/OpenDSZ}},
+  version      = {1.0.0}
+}
+```
+
+### Markdown / Text
+```text
+OpenDSZ by Abraham Jeevan Roy (https://github.com/abrahamjroy/OpenDSZ) - Licensed under Apache-2.0.
+```
+
+---
+
+## 8. License & Legal Disclaimers
+
+### License
+OpenDSZ is licensed under the **Apache License, Version 2.0**. See the [LICENSE](LICENSE) file for the full license text and the [NOTICE](NOTICE) file for mandatory attribution notices.
+
+Under Section 4(d) of the Apache 2.0 License, any redistribution or derivative work must retain and display the attribution notices contained in the `NOTICE` file in documentation or user interfaces.
+
+### Trademark Disclaimer
+- "PlayStation", "DualSense", "DualSense Edge", and "PS5" are registered trademarks or trademarks of **Sony Interactive Entertainment Inc.**
+- "Forza", "Forza Horizon", and "Windows" are trademarks of the **Microsoft Corporation**.
+- "Steam" is a registered trademark of **Valve Corporation**.
+- "macOS" is a trademark of **Apple Inc.**
+
+OpenDSZ is an independent open-source project and is neither affiliated with, authorized by, sponsored by, nor endorsed by Sony Interactive Entertainment, Microsoft, Valve, or Apple. All product and company names are trademarks or registered trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.
