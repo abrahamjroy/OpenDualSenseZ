@@ -1,0 +1,19 @@
+{
+  "name": "OpenDSZ",
+  "author": "Abraham Jeevan Roy",
+  "flags": [
+    "_root"
+  ],
+  "api_version": 1,
+  "publish": {
+    "tags": [
+      "dualsense",
+      "controller",
+      "haptics",
+      "forza",
+      "triggers"
+    ],
+    "description": "Native DualSense controller manager with adaptive triggers, Ferrari F1 rev lights, and telemetry haptics."
+  },
+  "version": "1.0.0"
+}
